@@ -1,4 +1,6 @@
-name: 'Z-Wave Fan'
-packageKey: 'zwave-fan'
+name: 'Z-Wave Fan CS'
+packageKey: 'zwave-fan-cs'
+description: 'ST Z-wave Fan with additional capabilities and Settings'
+vendorSupportInformation: 'Developer: csstup<br>Adds ability to set fan speed from some external systems.<br>Adds Leviton 4 speed controller Settings.'
 permissions:
   zwave: {}

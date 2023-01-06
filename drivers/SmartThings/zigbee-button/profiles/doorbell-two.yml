@@ -1,0 +1,39 @@
+name: doorbell-two
+components:
+  - id: main
+    capabilities:
+      - id: button
+        version: 1
+      - id: firmwareUpdate
+        version: 1
+    categories:
+      - name: DoorBell
+  - id: button1
+    capabilities:
+      - id: button
+        version: 1
+    categories:
+      - name: DoorBell
+  - id: button2
+    capabilities:
+      - id: button
+        version: 1
+    categories:
+      - name: DoorBell
+preferences:
+  - name: "driverVersion"
+    title: "Driver Version"
+    description: "V0.90 - 2022-09-10 - C.Stup"
+    required: false
+    preferenceType: boolean
+    definition:
+      default: false
+  - name: "timeBetweenPresses"
+    title: "Seconds Between Presses"
+    description: "Seconds allowed between presses (increase this value to eliminate duplicate notifications).  Default = 5 seconds."
+    required: true
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 60
+      default: 5

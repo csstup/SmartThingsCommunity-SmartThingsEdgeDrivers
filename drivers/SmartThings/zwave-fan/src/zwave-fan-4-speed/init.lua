@@ -58,7 +58,6 @@ local function map_switch_level_to_fan_4_speed (level)
   end
 end
 
-
 --- Determine whether the passed device is a 4-speed fan
 ---
 --- @param driver st.zwave.Driver
@@ -82,6 +81,31 @@ local capability_handlers = {}
 --- @param command table ST level capability command
 function capability_handlers.fan_speed_set(driver, device, command)
   fan_speed_helper.capability_handlers.fan_speed_set(driver, device, command, map_fan_4_speed_to_switch_level)
+end
+
+local function call_parent_handler(handlers, self, device, event, args)
+
+  if type(handlers) == "function" then
+    handlers = { handlers }  -- wrap as table
+  end
+  for _, func in ipairs( handlers or {} ) do
+      func(self, device, event, args)
+  end
+end
+
+local function sp_info_changed(self, device, event, args)
+  print("sp_info_changed() enter for " .. event)
+
+  -- Call our top level handler for default behaviour
+  call_parent_handler(self.lifecycle_handlers.infoChanged, self, device, event, args)
+
+--   local parent_funcs = self.lifecycle_handlers.infoChanged
+--   if type(parent_funcs) == "function" then
+--     parent_funcs = { parent_funcs }  -- wrap as table
+--   end
+--   for _, func in ipairs( parent_funcs or {} ) do
+--       func(self, device, event, args)
+--   end
 end
 
 local zwave_handlers = {}
@@ -109,6 +133,9 @@ local zwave_fan_4_speed = {
     [cc.BASIC] = {
       [Basic.REPORT] = zwave_handlers.fan_multilevel_report
     }
+  },
+  lifecycle_handlers = {
+    infoChanged = sp_info_changed
   },
   NAME = "Z-Wave fan 4 speed",
   can_handle = can_handle_fan_4_speed,

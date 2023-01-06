@@ -139,3 +139,13 @@ zigbeeManufacturer:
     manufacturer: eWeLink
     model: SNZB-01P
     deviceProfileName: one-button-battery
+  - id: Echostar/Bell
+    deviceLabel: Echostar Doorbell Sensor
+    manufacturer: Echostar
+    model: Bell
+    deviceProfileName: doorbell-two
+  - id: ThirdReality/3RSB22BZ
+    deviceLabel: Third Reality Smart Button
+    manufacturer: Third Reality, Inc
+    model: 3RSB22BZ
+    deviceProfileName: one-button-battery

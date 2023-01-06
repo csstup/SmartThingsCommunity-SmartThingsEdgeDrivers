@@ -1,4 +1,5 @@
-name: 'Z-Wave Window Treatment'
+name: 'Z-Wave Window Treatment CS'
 packageKey: 'zwave-window-treatment'
+description: "Stock driver with added support for Philio Pan-08 Blind Controllers"
 permissions:
   zwave: {}

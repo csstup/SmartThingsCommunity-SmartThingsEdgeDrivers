@@ -31,7 +31,8 @@ local devices = {
   BUTTON_PUSH_2 = {
     MATCHING_MATRIX = {
       { mfr = "IKEA of Sweden", model = "TRADFRI open/close remote" },
-      { mfr = "KE", model = "TRADFRI open/close remote" }
+      { mfr = "KE", model = "TRADFRI open/close remote" },
+      { mfr = " Echostar", model = "   Bell" },  -- note extra leading spaces
     },
     SUPPORTED_BUTTON_VALUES = {"pushed"},
     NUMBER_OF_BUTTONS = 2
@@ -65,7 +66,8 @@ local devices = {
   BUTTON_PUSH_HELD_DOUBLE_1 = {
     MATCHING_MATRIX = {
       { mfr = "ShinaSystem", model = "BSM-300Z" },
-      { mfr = "ShinaSystem", model = "SBM300ZB1" }
+      { mfr = "ShinaSystem", model = "SBM300ZB1" },
+      { mfr = "Third Reality, Inc", model = "3RSB22BZ" },
     },
     SUPPORTED_BUTTON_VALUES = { "pushed", "held", "double" },
     NUMBER_OF_BUTTONS = 1

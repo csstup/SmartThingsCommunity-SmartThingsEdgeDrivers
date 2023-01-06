@@ -34,10 +34,14 @@ local ZIGBEE_MULTI_BUTTON_FINGERPRINTS = {
   { mfr = "ShinaSystem", model = "BSM-300Z" },
   { mfr = "ShinaSystem", model = "SBM300ZB1" },
   { mfr = "ShinaSystem", model = "SBM300ZB2" },
-  { mfr = "ShinaSystem", model = "SBM300ZB3" }
+  { mfr = "ShinaSystem", model = "SBM300ZB3" },
+  { mfr = " Echostar",    model = "   Bell"      },
+  { mfr = "Third Reality, Inc", model = "3RSB22BZ" },
 }
 
 local function can_handle_zigbee_multi_button(opts, driver, device, ...)
+  -- device.log.debug("Testing manu: '" .. device:get_manufacturer() .. "'")
+  -- device.log.debug("Testing model: '" .. device:get_model() .. "'")
   for _, fingerprint in ipairs(ZIGBEE_MULTI_BUTTON_FINGERPRINTS) do
     if device:get_manufacturer() == fingerprint.mfr and device:get_model() == fingerprint.model then
       return true
@@ -73,7 +77,9 @@ local zigbee_multi_button = {
     require("zigbee-multi-button.centralite"),
     require("zigbee-multi-button.adurosmart"),
     require("zigbee-multi-button.heiman"),
-    require("zigbee-multi-button.shinasystems")
+    require("zigbee-multi-button.shinasystems"),
+    require("zigbee-multi-button.sage-doorbell"),
+    require("zigbee-multi-button.third-reality"),
   }
 }
 

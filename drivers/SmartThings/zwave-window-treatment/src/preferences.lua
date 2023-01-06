@@ -76,7 +76,17 @@ local devices = {
     PARAMETERS = {
       openCloseTiming = {parameter_number = 35, size = 1}
     }
-  }
+  },
+  PHILO_PAN08 = {
+    MATCHING_MATRIX = {
+      mfrs = 0x013C,
+      product_types = 0x0001,
+      product_ids = 0x0015,
+    },
+    PARAMETERS = {
+      levelReportMode = {parameter_number = 6, size = 1},
+    }
+  },
 }
 
 local preferences = {}

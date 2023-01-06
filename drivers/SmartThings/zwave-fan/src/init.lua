@@ -30,6 +30,12 @@ local preferencesMap = require "preferences"
 --- @param event table
 --- @param args
 local function info_changed(driver, device, event, args)
+  print("info changed() event = " .. event)
+
+  local utils = require("st.utils")
+  
+  print(utils.stringify_table(device.st_store, "device.st_store:", true))
+
   local preferences = preferencesMap.get_device_parameters(device)
   if preferences then
     for id, value in pairs(device.preferences) do
@@ -68,4 +74,7 @@ local driver_template = {
 defaults.register_for_default_handlers(driver_template, driver_template.supported_capabilities)
 --- @type st.zwave.Driver
 local fan = ZwaveDriver("zwave_fan", driver_template)
+
+utils = require("st.utils")
+print(utils.stringify_table(fan, "ZwaveDriver:fan", true))
 fan:run()

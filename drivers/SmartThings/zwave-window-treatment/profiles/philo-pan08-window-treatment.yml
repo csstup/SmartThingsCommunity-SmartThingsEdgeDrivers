@@ -1,0 +1,36 @@
+name: philo-pan08-window-treatment
+components:
+- id: main
+  capabilities:
+  - id: windowShade
+    version: 1
+  - id: windowShadeLevel
+    version: 1
+  - id: windowShadePreset
+    version: 1
+  - id: refresh
+    version: 1
+  categories:
+  - name: Blind
+preferences:
+  - name: "driverVersion"
+    title: "Driver Version"
+    description: "V0.90 - 2022-09-16 - C.Stup"
+    required: false
+    preferenceType: boolean
+    definition:
+      default: false
+  - preferenceId: presetPosition
+    explicit: true
+  - preferenceId: reverse
+    explicit: true
+  - name: "levelReportMode"
+    title: "Level Report Mode"
+    description: "Control how the blinds report their level during movement.  Default is to report at 10%."
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        1:      "Report Destination within 5 seconds"
+        2:      "Report at 10%"   # default
+      default: 2

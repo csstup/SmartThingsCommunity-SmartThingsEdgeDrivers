@@ -1,4 +1,10 @@
 zwaveManufacturer:
+  - id: "philio/window"   # Added for Martin Borg
+    deviceLabel: Philio Pan-08 Blind Controllers
+    manufacturerId: 0x013C
+    productType: 0x0001
+    productId: 0x0015
+    deviceProfileName: philo-pan08-window-treatment
   - id: "springs/window"
     deviceLabel: Springs Window Shade
     manufacturerId: 0x026E

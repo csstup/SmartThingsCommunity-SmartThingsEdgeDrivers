@@ -1,4 +1,5 @@
-name: 'Zigbee Button'
-packageKey: 'zigbee-button'
+name: 'Zigbee Button CS'
+packageKey: 'zigbee-button-cs'
+description: 'ST Zigbee Button with added drivers: Echostar/Sage Doorbell; Third Reality Smart Button'
 permissions:
   zigbee: {}
