@@ -30,12 +30,6 @@ local preferencesMap = require "preferences"
 --- @param event table
 --- @param args
 local function info_changed(driver, device, event, args)
-  print("info changed() event = " .. event)
-
-  local utils = require("st.utils")
-  
-  print(utils.stringify_table(device.st_store, "device.st_store:", true))
-
   local preferences = preferencesMap.get_device_parameters(device)
   if preferences then
     for id, value in pairs(device.preferences) do
