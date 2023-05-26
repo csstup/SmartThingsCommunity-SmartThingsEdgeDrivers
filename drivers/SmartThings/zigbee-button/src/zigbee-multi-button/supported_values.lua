@@ -17,16 +17,24 @@ local devices = {
     MATCHING_MATRIX = {
       { mfr = "IKEA of Sweden", model = "TRADFRI on/off switch" }
     },
-    SUPPORTED_BUTTON_VALUES = {"pushed", "held"},
+    SUPPORTED_BUTTON_VALUES = { "pushed", "held" },
     NUMBER_OF_BUTTONS = 2
   },
   BUTTON_PUSH_HELD_4 = {
     MATCHING_MATRIX = {
       { mfr = "CentraLite", model = "3450-L" },
-      { mfr = "CentraLite", model = "3450-L2" }
+      { mfr = "CentraLite", model = "3450-L2" },
+      { mfr = "ROBB smarrt", model = "ROB_200-008-0" }
     },
-    SUPPORTED_BUTTON_VALUES = {"pushed", "held"},
+    SUPPORTED_BUTTON_VALUES = { "pushed", "held" },
     NUMBER_OF_BUTTONS = 4
+  },
+  BUTTON_PUSH_HELD_8 = {
+    MATCHING_MATRIX = {
+      { mfr = "ROBB smarrt", model = "ROB_200-007-0" },
+    },
+    SUPPORTED_BUTTON_VALUES = { "pushed", "held" },
+    NUMBER_OF_BUTTONS = 8
   },
   BUTTON_PUSH_2 = {
     MATCHING_MATRIX = {
@@ -34,14 +42,14 @@ local devices = {
       { mfr = "KE", model = "TRADFRI open/close remote" },
       { mfr = " Echostar", model = "   Bell" },  -- note extra leading spaces
     },
-    SUPPORTED_BUTTON_VALUES = {"pushed"},
+    SUPPORTED_BUTTON_VALUES = { "pushed" },
     NUMBER_OF_BUTTONS = 2
   },
   BUTTON_PUSH_3 = {
     MATCHING_MATRIX = {
       { mfr = "SOMFY", model = "Situo 1 Zigbee" }
     },
-    SUPPORTED_BUTTON_VALUES = {"pushed"},
+    SUPPORTED_BUTTON_VALUES = { "pushed" },
     NUMBER_OF_BUTTONS = 3
   },
   BUTTON_PUSH_4 = {
@@ -53,14 +61,14 @@ local devices = {
       { mfr = "ADUROLIGHT", model = "Adurolight_NCC" },
       { mfr = "HEIMAN", model = "SceneSwitch-EM-3.0" }
     },
-    SUPPORTED_BUTTON_VALUES = {"pushed"},
+    SUPPORTED_BUTTON_VALUES = { "pushed" },
     NUMBER_OF_BUTTONS = 4
   },
   BUTTON_PUSH_12 = {
     MATCHING_MATRIX = {
       { mfr = "SOMFY", model = "Situo 4 Zigbee" }
     },
-    SUPPORTED_BUTTON_VALUES = {"pushed"},
+    SUPPORTED_BUTTON_VALUES = { "pushed" },
     NUMBER_OF_BUTTONS = 12
   },
   BUTTON_PUSH_HELD_DOUBLE_1 = {
