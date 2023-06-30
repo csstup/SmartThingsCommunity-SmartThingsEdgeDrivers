@@ -35,8 +35,10 @@ local ZIGBEE_MULTI_BUTTON_FINGERPRINTS = {
   { mfr = "ShinaSystem", model = "SBM300ZB1" },
   { mfr = "ShinaSystem", model = "SBM300ZB2" },
   { mfr = "ShinaSystem", model = "SBM300ZB3" },
-  { mfr = " Echostar",    model = "   Bell"      },
-  { mfr = "Third Reality, Inc", model = "3RSB22BZ" },
+  { mfr = " Echostar",    model = "   Bell"      },    -- CSS Added
+  { mfr = "Third Reality, Inc", model = "3RSB22BZ" },  -- CSS added
+  { mfr = "ROBB smarrt", model = "ROB_200-007-0" },
+  { mfr = "ROBB smarrt", model = "ROB_200-008-0" }
 }
 
 local function can_handle_zigbee_multi_button(opts, driver, device, ...)
@@ -83,6 +85,7 @@ local zigbee_multi_button = {
     require("zigbee-multi-button.shinasystems"),
     require("zigbee-multi-button.sage-doorbell"),
     require("zigbee-multi-button.third-reality"),
+    require("zigbee-multi-button.robb")
   }
 }
 

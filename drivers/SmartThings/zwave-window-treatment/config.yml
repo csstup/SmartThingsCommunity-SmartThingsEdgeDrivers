@@ -3,3 +3,5 @@ packageKey: 'zwave-window-treatment'
 description: "Stock driver with added support for Philio Pan-08 Blind Controllers"
 permissions:
   zwave: {}
+description: "SmartThings driver for Z-Wave window treatment devices"
+vendorSupportInformation: "https://support.smartthings.com"

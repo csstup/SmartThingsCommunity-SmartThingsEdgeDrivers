@@ -3,3 +3,5 @@ packageKey: 'zigbee-button-cs'
 description: 'ST Zigbee Button with added drivers: Echostar/Sage Doorbell; Third Reality Smart Button'
 permissions:
   zigbee: {}
+description: "SmartThings driver for Zigbee button devices"
+vendorSupportInformation: "https://support.smartthings.com"

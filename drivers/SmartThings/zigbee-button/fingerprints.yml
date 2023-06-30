@@ -134,11 +134,6 @@ zigbeeManufacturer:
     manufacturer: eWeLink
     model: WB01
     deviceProfileName: one-button-battery
-  - id: eWeLink/SNZB-01P
-    deviceLabel: eWeLink Button
-    manufacturer: eWeLink
-    model: SNZB-01P
-    deviceProfileName: one-button-battery
   - id: Echostar/Bell
     deviceLabel: Echostar Doorbell Sensor
     manufacturer: Echostar
@@ -148,4 +143,19 @@ zigbeeManufacturer:
     deviceLabel: Third Reality Smart Button
     manufacturer: Third Reality, Inc
     model: 3RSB22BZ
+    deviceProfileName: one-button-battery    
+  - id: eWeLink/SNZB-01P
+    deviceLabel: eWeLink Button
+    manufacturer: eWeLink
+    model: SNZB-01P
     deviceProfileName: one-button-battery
+  - id: "ROBB smarrt/ROB_200-007-0"
+    manufacturer: ROBB smarrt
+    model: ROB_200-007-0
+    deviceLabel: ROBB 8x Wireless Smarrt Switch
+    deviceProfileName: eight-buttons-battery
+  - id: "ROBB smarrt/ROB_200-008-0"
+    manufacturer: ROBB smarrt
+    model: ROB_200-008-0
+    deviceLabel: ROBB 4x Wireless Smarrt Switch
+    deviceProfileName: four-buttons-battery
