@@ -27,7 +27,7 @@ def getChangedDrivers() {
 pipeline {
   agent {
     docker {
-      image 'smartthings-registry.jfrog.io/iot/edge/edblua-formatter:latest'
+      image 'python:3.10'
       label 'production'
       args '--entrypoint= -u 0:0'
     }
@@ -43,7 +43,10 @@ pipeline {
           currentBuild.displayName = "#" + currentBuild.number + " " + env.BRANCH
           currentBuild.description = "Drivers changed: " + env.CHANGED_DRIVERS
         }
+        sh 'git config --global --add safe.directory "*"'
         sh 'git clean -xfd'
+        sh 'apt-get update'
+        sh 'apt-get install zip -y'
         sh 'pip3 install -r tools/requirements.txt'
       }
     }

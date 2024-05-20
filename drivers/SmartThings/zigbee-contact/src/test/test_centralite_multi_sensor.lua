@@ -205,7 +205,7 @@ test.register_coroutine_test(
   function()
     test.socket.zigbee:__set_channel_ordering("relaxed")
     test.socket.device_lifecycle:__queue_receive({ mock_device.id, "added" })
-    -- test.socket.capability:__expect_send(mock_device:generate_test_message("main", capabilities.accelerationSensor.acceleration.inactive()))
+    test.socket.capability:__expect_send(mock_device:generate_test_message("main", capabilities.accelerationSensor.acceleration.inactive()))
     test.socket.zigbee:__expect_send({
       mock_device.id,
       PowerConfiguration.attributes.BatteryVoltage:read(mock_device)
@@ -240,15 +240,7 @@ test.register_coroutine_test(
     })
     test.socket.zigbee:__expect_send({
       mock_device.id,
-      TemperatureMeasurement.attributes.MeasuredValue:configure_reporting(mock_device, 30, 300, 16)
-    })
-    test.socket.zigbee:__expect_send({
-      mock_device.id,
-      zigbee_test_utils.build_bind_request(mock_device, zigbee_test_utils.mock_hub_eui, IASZone.ID)
-    })
-    test.socket.zigbee:__expect_send({
-      mock_device.id,
-      IASZone.attributes.ZoneStatus:configure_reporting(mock_device, 30, 300, 1)
+      TemperatureMeasurement.attributes.MeasuredValue:configure_reporting(mock_device, 30, 600, 100)
     })
     test.socket.zigbee:__expect_send({
       mock_device.id,
@@ -260,7 +252,7 @@ test.register_coroutine_test(
     })
     test.socket.zigbee:__expect_send({
       mock_device.id,
-      build_write_attr_msg(0xFC02, 0x0000, data_types.Uint8, 0x20, 0x104E)
+      build_write_attr_msg(0xFC02, 0x0000, data_types.Uint8, 0x02, 0x104E)
     })
     test.socket.zigbee:__expect_send({
       mock_device.id,

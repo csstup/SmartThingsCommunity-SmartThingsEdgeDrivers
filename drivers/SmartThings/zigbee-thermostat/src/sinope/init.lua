@@ -49,6 +49,11 @@ local PREFERENCE_TABLES = {
     attributeId = MFR_BACKLIGHT_MODE_ATTRIBUTE,
     dataType = data_types.Enum8
   },
+  temperatureDisplayMode = {
+    clusterId = ThermostatUserInterfaceConfiguration.ID,
+    attributeId = ThermostatUserInterfaceConfiguration.attributes.TemperatureDisplayMode.ID,
+    dataType = data_types.Enum8
+  },
   timeFormat = {
     clusterId = SINOPE_CUSTOM_CLUSTER,
     attributeId = MFR_TIME_FORMAT_ATTRIBUTE,
@@ -122,6 +127,10 @@ local thermostat_heating_demand_handler = function(driver, device, heatingDemand
   end
 end
 
+local supported_thermostat_modes_handler = function(driver, device, supported_modes)
+  device:emit_event(ThermostatMode.supportedThermostatModes({"off", "heat"}))
+end
+
 local function info_changed(driver, device, event, args)
   for name, info in pairs(PREFERENCE_TABLES) do
     if (device.preferences[name] ~= nil and args.old_st_store.preferences[name] ~= device.preferences[name]) then
@@ -153,7 +162,8 @@ local sinope_thermostat = {
   zigbee_handlers = {
     attr = {
       [Thermostat.ID] = {
-        [Thermostat.attributes.PIHeatingDemand.ID] = thermostat_heating_demand_handler
+        [Thermostat.attributes.PIHeatingDemand.ID] = thermostat_heating_demand_handler,
+        [Thermostat.attributes.ControlSequenceOfOperation.ID] = supported_thermostat_modes_handler
       }
     }
   },
