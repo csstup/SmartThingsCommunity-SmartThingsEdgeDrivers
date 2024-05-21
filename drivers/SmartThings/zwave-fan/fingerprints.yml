@@ -5,17 +5,29 @@ zwaveManufacturer:
     productType: 0x4944
     productId: 0x3034
     deviceProfileName: fan-3speed
-  - id: "GE/0063/4944/3131"
+  - id: "GE/0063/4944/3131"   # 39358 / ZW4002
     deviceLabel: GE Fan
     manufacturerId: 0x0063
     productType: 0x4944
     productId: 0x3131
+    deviceProfileName: fan-3speed
+  - id: "GE/0063/4944/3138"   # 14314 / ZW4002
+    deviceLabel: GE Fan
+    manufacturerId: 0x0063
+    productType: 0x4944
+    productId: 0x3138
     deviceProfileName: fan-3speed
   - id: "GE/0063/4944/3337"
     deviceLabel: GE Fan
     manufacturerId: 0x0063
     productType: 0x4944
     productId: 0x3337
+    deviceProfileName: fan-3speed
+  - id: "GE/0063/4944/3338"   # 55259 / ZW4002
+    deviceLabel: GE Fan
+    manufacturerId: 0x0063
+    productType: 0x4944
+    productId: 0x3338
     deviceProfileName: fan-3speed
   - id: "Honeywell/0039/4944/3131"
     deviceLabel: Honeywell Fan
