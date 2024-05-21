@@ -4,5 +4,3 @@ description: 'ST Z-wave Fan with additional capabilities and Settings'
 vendorSupportInformation: 'Developer: csstup<br>Adds ability to set fan speed from some external systems.<br>Adds Leviton 4 speed controller Settings.'
 permissions:
   zwave: {}
-description: "SmartThings driver for Z-Wave fan devices"
-vendorSupportInformation: "https://support.smartthings.com"
