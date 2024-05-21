@@ -30,7 +30,6 @@ local FAN_3_SPEED_FINGERPRINTS = {
   {mfr = 0x0063, prod = 0x4944, model = 0x3138}, -- GE In-Wall Smart Fan Control 14314 / ZW4002
   {mfr = 0x0063, prod = 0x4944, model = 0x3337}, -- GE In-Wall Smart Fan Control
   {mfr = 0x0063, prod = 0x4944, model = 0x3338}, -- GE In-Wall Smart Fan Control 55259 / ZW4002
-
 }
 
 local function map_fan_3_speed_to_switch_level (speed)

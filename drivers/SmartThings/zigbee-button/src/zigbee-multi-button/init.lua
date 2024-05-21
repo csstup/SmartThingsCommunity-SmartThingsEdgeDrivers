@@ -23,10 +23,13 @@ local ZIGBEE_MULTI_BUTTON_FINGERPRINTS = {
   { mfr = "AduroSmart Eria", model = "Adurolight_NCC" },
   { mfr = "ADUROLIGHT", model = "Adurolight_NCC" },
   { mfr = "HEIMAN", model = "SceneSwitch-EM-3.0" },
+  { mfr = "HEIMAN", model = "HS6SSA-W-EF-3.0" },
+  { mfr = "HEIMAN", model = "HS6SSB-W-EF-3.0" },
   { mfr = "IKEA of Sweden", model = "TRADFRI on/off switch" },
   { mfr = "IKEA of Sweden", model = "TRADFRI open/close remote" },
   { mfr = "IKEA of Sweden", model = "TRADFRI remote control" },
   { mfr = "KE", model = "TRADFRI open/close remote" },
+  { mfr = "\x02KE", model = "TRADFRI open/close remote" },
   { mfr = "SOMFY", model = "Situo 1 Zigbee" },
   { mfr = "SOMFY", model = "Situo 4 Zigbee" },
   { mfr = "LDS", model = "ZBT-CCTSwitch-D0001" },
@@ -38,7 +41,9 @@ local ZIGBEE_MULTI_BUTTON_FINGERPRINTS = {
   { mfr = " Echostar",    model = "   Bell"      },    -- CSS Added
   { mfr = "Third Reality, Inc", model = "3RSB22BZ" },  -- CSS added
   { mfr = "ROBB smarrt", model = "ROB_200-007-0" },
-  { mfr = "ROBB smarrt", model = "ROB_200-008-0" }
+  { mfr = "ROBB smarrt", model = "ROB_200-008-0" },
+  { mfr = "WALL HERO", model = "ACL-401SCA4" },
+  { mfr = "Samsung Electronics", model = "SAMSUNG-ITM-Z-005" }
 }
 
 local function can_handle_zigbee_multi_button(opts, driver, device, ...)
@@ -55,18 +60,20 @@ end
 local function added_handler(self, device)
   local config = supported_values.get_device_parameters(device)
   for _, component in pairs(device.profile.components) do
-    local number_of_buttons = component.id == "main" and config.NUMBER_OF_BUTTONS or 1
     if config ~= nil then
+      local number_of_buttons = component.id == "main" and config.NUMBER_OF_BUTTONS or 1
       device:emit_component_event(component,
         capabilities.button.supportedButtonValues(config.SUPPORTED_BUTTON_VALUES, { visibility = { displayed = false } }))
+      device:emit_component_event(component,
+        capabilities.button.numberOfButtons({ value = number_of_buttons }, { visibility = { displayed = false } }))
     else
       device:emit_component_event(component,
         capabilities.button.supportedButtonValues({ "pushed", "held" }, { visibility = { displayed = false } }))
+      device:emit_component_event(component,
+        capabilities.button.numberOfButtons({ value = 1 }, { visibility = { displayed = false } }))
     end
-    device:emit_component_event(component,
-      capabilities.button.numberOfButtons({ value = number_of_buttons }, { visibility = { displayed = false } }))
   end
-  -- device:emit_event(capabilities.button.button.pushed({state_change = false}))
+  device:emit_event(capabilities.button.button.pushed({state_change = false}))
 end
 
 local zigbee_multi_button = {
@@ -76,6 +83,10 @@ local zigbee_multi_button = {
   },
   can_handle = can_handle_zigbee_multi_button,
   sub_drivers = {
+    -- CSS added
+    require("zigbee-multi-button.sage-doorbell"),
+    require("zigbee-multi-button.third-reality"),
+    
     require("zigbee-multi-button.ikea"),
     require("zigbee-multi-button.somfy"),
     require("zigbee-multi-button.ecosmart"),
@@ -83,9 +94,9 @@ local zigbee_multi_button = {
     require("zigbee-multi-button.adurosmart"),
     require("zigbee-multi-button.heiman"),
     require("zigbee-multi-button.shinasystems"),
-    require("zigbee-multi-button.sage-doorbell"),
-    require("zigbee-multi-button.third-reality"),
-    require("zigbee-multi-button.robb")
+    require("zigbee-multi-button.robb"),
+    require("zigbee-multi-button.wallhero"),
+    require("zigbee-multi-button.SLED")
   }
 }
 

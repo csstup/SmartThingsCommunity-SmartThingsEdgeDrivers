@@ -9,7 +9,7 @@ components:
     config:
       values:
         - key: "heatingSetpoint.value"
-          range: [ 4, 28 ]
+          range: [ 5, 30 ]
   - id: thermostatMode
     version: 1
   - id: thermostatOperatingState
@@ -27,6 +27,16 @@ components:
   categories:
   - name: Thermostat
 preferences:
+  - name: "temperatureDisplayMode"
+    title: "Temperature Display Mode"
+    description: "Change temperature display mode."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+       0: "Celsius"
+       1: "Fahrenheit"
+      default: 0
   - name: "keypadLock"
     title: "Keypad Lock"
     description: "Enable or disable the device's buttons."
