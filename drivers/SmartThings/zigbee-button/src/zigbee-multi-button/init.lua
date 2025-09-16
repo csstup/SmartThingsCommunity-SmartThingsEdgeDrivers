@@ -16,6 +16,8 @@ local capabilities = require "st.capabilities"
 local supported_values = require "zigbee-multi-button.supported_values"
 
 local ZIGBEE_MULTI_BUTTON_FINGERPRINTS = {
+  { mfr = " Echostar",    model = "   Bell"      },    -- CSS Added
+  { mfr = "Third Reality, Inc", model = "3RSB22BZ" },  -- CSS added
   { mfr = "CentraLite", model = "3450-L" },
   { mfr = "CentraLite", model = "3450-L2" },
   { mfr = "AduroSmart Eria", model = "ADUROLIGHT_CSC" },
@@ -38,12 +40,19 @@ local ZIGBEE_MULTI_BUTTON_FINGERPRINTS = {
   { mfr = "ShinaSystem", model = "SBM300ZB1" },
   { mfr = "ShinaSystem", model = "SBM300ZB2" },
   { mfr = "ShinaSystem", model = "SBM300ZB3" },
-  { mfr = " Echostar",    model = "   Bell"      },    -- CSS Added
-  { mfr = "Third Reality, Inc", model = "3RSB22BZ" },  -- CSS added
+  { mfr = "ShinaSystem", model = "SBM300ZC1" },
+  { mfr = "ShinaSystem", model = "SBM300ZC2" },
+  { mfr = "ShinaSystem", model = "SBM300ZC3" },
+  { mfr = "ShinaSystem", model = "SBM300ZC4" },
+  { mfr = "ShinaSystem", model = "SQM300ZC4" },
   { mfr = "ROBB smarrt", model = "ROB_200-007-0" },
   { mfr = "ROBB smarrt", model = "ROB_200-008-0" },
   { mfr = "WALL HERO", model = "ACL-401SCA4" },
-  { mfr = "Samsung Electronics", model = "SAMSUNG-ITM-Z-005" }
+  { mfr = "Samsung Electronics", model = "SAMSUNG-ITM-Z-005" },
+  { mfr = "Vimar", model = "RemoteControl_v1.0" },
+  { mfr = "Linxura", model = "Smart Controller" },
+  { mfr = "Linxura", model = "Aura Smart Button" },
+  { mfr = "zunzunbee", model = "SSWZ8T" }
 }
 
 local function can_handle_zigbee_multi_button(opts, driver, device, ...)
@@ -96,7 +105,10 @@ local zigbee_multi_button = {
     require("zigbee-multi-button.shinasystems"),
     require("zigbee-multi-button.robb"),
     require("zigbee-multi-button.wallhero"),
-    require("zigbee-multi-button.SLED")
+    require("zigbee-multi-button.SLED"),
+    require("zigbee-multi-button.vimar"),
+    require("zigbee-multi-button.linxura"),
+    require("zigbee-multi-button.zunzunbee")
   }
 }
 
